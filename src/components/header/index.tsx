@@ -3,8 +3,6 @@ import logo from '../../assets/logo-sublimavector.svg'
 import { FiUser } from 'react-icons/fi';
 
 export function Header() {
-  const signed = false;
-  const loadingAuth = false;
 
   return (
     <div>
