@@ -53,7 +53,7 @@ export function Header() {
       < div className='w-full flex items-center border-0 border-none justify-center h-16 bg-primary-500 shadow-xl mb-4' >
         <header className='flex flex-row w-full max-w-7xl items-center justify-between px-4 mx-auto border-0 border-none'>
           <Link to="/">
-            <img className='w-[200px] max-h-20' src={logo} alt="Logo sublimavector" />
+            <img className='w-[180px] sm:w-[200px] max-h-20' src={logo} alt="Logo sublimavector" />
           </Link>
 
           <div className='hidden sm:flex w-full max-w-xs lg:max-w-[50%] bg-white rounded px-3 py-2 mx-3'>
