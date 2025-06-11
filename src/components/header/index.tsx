@@ -50,15 +50,15 @@ export function Header() {
       {/* FIM MENU MOBILE */}
 
 
-      < div className='w-full flex items-center justify-center h-16 bg-primary-500 drop-shadow mb-4' >
-        <header className='flex flex-row w-full max-w-7xl items-center justify-between px-4 mx-auto'>
+      < div className='w-full flex items-center border-0 border-none justify-center h-16 bg-primary-500 shadow-xl mb-4' >
+        <header className='flex flex-row w-full max-w-7xl items-center justify-between px-4 mx-auto border-0 border-none'>
           <Link to="/">
-            <img className='size-80 sm:size-48 md:size-48 lg:size-48  ' src={logo} alt="Logo sublimavector" />
+            <img className='w-[200px] max-h-20' src={logo} alt="Logo sublimavector" />
           </Link>
 
-          <div className='flex w-full max-w-xs lg:max-w-[50%] bg-white rounded px-3 py-2 mx-3'>
+          <div className='hidden sm:flex w-full max-w-xs lg:max-w-[50%] bg-white rounded px-3 py-2 mx-3'>
             <FiSearch size={24} color="#00747C" />
-            <input className='w-full bg-slate-50 px-2 border-0 outline-none ' type='text' placeholder='Buscar...' />
+            <input className='w-full bg-white px-2 border-none border-0 outline-none ' type='text' placeholder='Buscar...' />
           </div>
 
           <div className='flex items-center gap-5'>
@@ -88,6 +88,11 @@ export function Header() {
           </div>
         </header>
       </div >
+
+
+
     </div >
+
+
   )
 }
