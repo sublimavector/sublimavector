@@ -51,7 +51,7 @@ export function Home() {
       {/* FIM CAMPO DE BUSCA */}
 
       {/* MENU */}
-      <div className='hidden sm:flex w-full justify-center items-center bg-primary-500 rounded-xl mt-4'>
+      <div className='hidden sm:flex w-full justify-center items-center bg-primary-500 rounded-md mt-4'>
         <nav className="flex w-full items-center justify-center p-3">
           <ul className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             {menuItems.map((item, index) => (
@@ -73,8 +73,9 @@ export function Home() {
       {/* REDES SOCIAIS */}
       <div className='flex justify-between items-center mt-1'>
         <div className='flex items-center justify-center gap-1'>
-          <h2 className='text-primary-500 font-bold sm:text-xl text-[14px]'>Serviços personalizados: +55 (88)9.9966-6510</h2>
-          <FaWhatsapp className='text-primary-500 size-7' />
+          <strong className='text-primary-500 font-medium flex items-center justify-center sm:text-xl text-[14px]'>Serviços personalizados:</strong>
+          <strong className='text-primary-500 font-medium flex items-center justify-center sm:text-xl text-[14px]'>+55 (88)9.9966-6510</strong>
+          <FaWhatsapp className='text-primary-500 size-6' />
         </div>
         <div className='flex items-center justify-center gap-1'>
           <FaYoutube className='text-primary-500 size-7' />
@@ -84,77 +85,239 @@ export function Home() {
       </div>
       {/* FIM REDES SOCIAIS */}
 
-      {/* TITULO */}
-      <h1 className='font-bold text-slate-700 text-center text-xl sm:text-2xl mt-6 mb-6'>ENCONTRE OS MELHORES  VETORES PARA SEUS PRODUTOS PERSONALIZADOS</h1>
-      {/* FIM TITULO */}
+      {/* TITULO PRINCIPAL */}
+      <h1 className='font-bold text-slate-700 text-center text-xl sm:text-3xl mt-8 mb-6'>ENCONTRE OS MELHORES  VETORES PARA SEUS PRODUTOS PERSONALIZADOS</h1>
+      {/* FIM DO TITULO PRINCIPAL */}
 
-      <div className="w-full max-w-4xl mx-auto">
-        {/* SLIDE WRAPPER */}
-        <div
-          className="relative overflow-hidden rounded-xl h-64"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-        >
+      {/* INICIO DO SLIDER */}
+      <div className="flex flex-col w-full mx-auto pb-2 rounded bg-primary-500 gap-2">
+
+        {/* INICIO DO BANNER */}
+        <div className="relative overflow-hidden rounded-t" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+
           <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${current * 100}%)` }}
-          >
-            {images.map((img, idx) => (
+            className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${current * 100}%)` }}>
+            {images.map((img, key) => (
               <img
-                key={idx}
+                key={key}
                 src={img}
-                alt={`Slide ${idx + 1}`}
-                className="min-w-full h-64 object-cover"
+                alt={`Slide ${key + 1}`}
+                className="min-w-full h-80 object-cover"
               />
             ))}
           </div>
-        </div>
 
-        {/* MINIATURAS */}
-        <div className="flex justify-center mt-4 gap-2">
-          {images.map((img, idx) => (
+        </div>
+        {/* FIM DO BANNER */}
+
+
+        {/* INICIO DAS MINIATURAS */}
+        <div className="flex w-full justify-center gap-2">
+          {images.map((img, key) => (
+
             <button
-              key={idx}
-              onClick={() => setCurrent(idx)}
-              className={`w-16 h-16 rounded-md overflow-hidden border-2 transition-all ${idx === current ? "border-blue-500" : "border-transparent"
-                }`}
+              key={key}
+              onClick={() => setCurrent(key)}
+              className={`w-24 h-12 rounded-md overflow-hidden border-2 transition-all 
+                              ${key === current ? "border-blue-500" : "border-transparent"}`}
             >
               <img
                 src={img}
-                alt={`Miniatura ${idx + 1}`}
+                alt={`Miniatura ${key + 1}`}
                 className="w-full h-full object-cover"
               />
             </button>
+
           ))}
         </div>
+        {/* FIM DAS MINIATURAS */}
+
       </div>
+      {/* FIM DO SLIDER */}
 
-      {/* LISTA DE CARDS */}
-      <main className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
-        <section className='w-full bg-white rounded flex-col items-center justify-center'>
+      {/* TITULO SECUNDARIO */}
+      <div className='w-full my-6 flex flex-col justify-center items-center'>
+        <h2 className='font-bold text-slate-700 text-2xl'>
+          CONFIRA NOSSO CATALOGOS
+        </h2>
+        <h3 className='font-bold text-slate-700 text-4xl'>
+          COM ARTES EXCLUSIVAS!
+        </h3>
+      </div>
+      {/* FIM DO TITULO SECUNDARIO */}
 
-          <img className='w-full rounded-lg m-h-72 transition-all hover:scale-105 duration-300 object-cover p-4' src={ImgCard} alt="Camisa  01" />
-          <p className='font-bold text-slate-700 text-md text-center  my-1'>CAMISA INTERCLASE DRAGON 2025</p>
-          <strong className='font-bold text-2xl text-slate-700 flex justify-center items-center my-2'>R$ 25,00</strong>
+      {/* CODIGO TEMPORARIO: grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 */}
 
-          <div className='flex flex-col items-center gap-2 bg-primary-500 p-2 rounded-b-lg'>
-            <div className='flex gap-2'>
-              <FaStar className='size-6 text-amber-400' />
-              <FaStar className='size-6 text-amber-400' />
-              <FaStar className='size-6 text-amber-400' />
-              <FaStar className='size-6' />
-              <FaStar className='size-6' />
-            </div>
-            <button className='w-full bg-second-500 text-white px-2 py-2 text-base rounded font-medium'>ADICIONAR AO CARRINHO</button>
+      {/* CARDS POR CATEGORIA */}
+      <main className='flex flex-col my-4'>
+
+        {/* CARDS INTECLASSE */}
+        <div className='w-full flex flex-col bg-amber-300 py-2 px-4 my-2 '>
+          <p className='text-xl font-medium'>INTERCLASSE</p>
+          <div className='w-full h-1/2 flex gap-4 '>
+
+            {/* CARD 1 */}
+            <section className='flex max-w-2xs gap-1 bg-white my-2 flex-col items-center justify-between rounded-md p-2 cursor-pointer'>
+              <img className='flex rounded-md transition-all hover:scale-105 duration-300 object-cover' src={ImgCard} alt="Camisa  01" />
+              <p className='font-medium text-slate-900'>CAMISA INTERCLASE DRAGON 2025</p>
+              <strong className='font-bold text-xl text-slate-900' >R$ 25,00</strong>
+
+              <div className='flex gap-2'>
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-slate-500' />
+                <FaStar className='size-6 text-slate-500' />
+              </div>
+              <button className='px-2 py-1 my-2 font-medium rounded-md text-white bg-primary-500 cursor-pointer'>ADICIONAR AO CARRINHO</button>
+            </section>
+            {/* FIM CARD 1 */}
+
+            {/* CARD 2 */}
+            <section className='flex max-w-2xs gap-1 bg-white my-2 flex-col items-center justify-between rounded-md p-2 cursor-pointer'>
+
+              <img className='flex rounded-md transition-all hover:scale-105 duration-300 object-cover' src={ImgCard} alt="Camisa  01" />
+              <p className='font-medium text-slate-900'>CAMISA INTERCLASE DRAGON 2025</p>
+              <strong className='font-bold text-xl text-slate-900' >R$ 25,00</strong>
+
+              <div className='flex gap-2'>
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-slate-500' />
+                <FaStar className='size-6 text-slate-500' />
+              </div>
+              <button className='px-2 py-1 my-2 font-medium rounded-md text-white bg-primary-500 cursor-pointer'>ADICIONAR AO CARRINHO</button>
+            </section>
+            {/* FIM CARD 2 */}
+
+            {/* CARD 2 */}
+            <section className='flex max-w-2xs gap-1 bg-white my-2 flex-col items-center justify-between rounded-md p-2 cursor-pointer'>
+
+              <img className='flex rounded-md transition-all hover:scale-105 duration-300 object-cover' src={ImgCard} alt="Camisa  01" />
+              <p className='font-medium text-slate-900'>CAMISA INTERCLASE DRAGON 2025</p>
+              <strong className='font-bold text-xl text-slate-900' >R$ 25,00</strong>
+
+              <div className='flex gap-2'>
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-slate-500' />
+                <FaStar className='size-6 text-slate-500' />
+              </div>
+              <button className='px-2 py-1 my-2 font-medium rounded-md text-white bg-primary-500 cursor-pointer'>ADICIONAR AO CARRINHO</button>
+            </section>
+            {/* FIM CARD 2 */}
+
+            {/* CARD 2 */}
+            <section className='flex max-w-2xs gap-1 bg-white my-2 flex-col items-center justify-between rounded-md p-2 cursor-pointer'>
+
+              <img className='flex rounded-md transition-all hover:scale-105 duration-300 object-cover' src={ImgCard} alt="Camisa  01" />
+              <p className='font-medium text-slate-900'>CAMISA INTERCLASE DRAGON 2025</p>
+              <strong className='font-bold text-xl text-slate-900' >R$ 25,00</strong>
+
+              <div className='flex gap-2'>
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-slate-500' />
+                <FaStar className='size-6 text-slate-500' />
+              </div>
+              <button className='px-2 py-1 my-2 font-medium rounded-md text-white bg-primary-500 cursor-pointer'>ADICIONAR AO CARRINHO</button>
+            </section>
+            {/* FIM CARD 2 */}
+
           </div>
+        </div>
+        {/* FIM CARDS INTECLASSE */}
 
-        </section>
+        {/* CARDS TERCEIRÃO */}
+        <div className='w-full flex flex-col bg-amber-300 py-2 px-4 my-2 '>
+          <p className='text-xl font-medium'>TERCEIRÃO</p>
+          <div className='w-full h-1/2 flex gap-4 '>
+
+            {/* CARD 1 */}
+            <section className='flex max-w-2xs gap-1 bg-white my-2 flex-col items-center justify-between rounded-md p-2 cursor-pointer'>
+              <img className='flex rounded-md transition-all hover:scale-105 duration-300 object-cover' src={ImgCard} alt="Camisa  01" />
+              <p className='font-medium text-slate-900'>CAMISA INTERCLASE DRAGON 2025</p>
+              <strong className='font-bold text-xl text-slate-900' >R$ 25,00</strong>
+
+              <div className='flex gap-2'>
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-slate-500' />
+                <FaStar className='size-6 text-slate-500' />
+              </div>
+              <button className='px-2 py-1 my-2 font-medium rounded-md text-white bg-primary-500 cursor-pointer'>ADICIONAR AO CARRINHO</button>
+            </section>
+            {/* FIM CARD 1 */}
+
+            {/* CARD 2 */}
+            <section className='flex max-w-2xs gap-1 bg-white my-2 flex-col items-center justify-between rounded-md p-2 cursor-pointer'>
+
+              <img className='flex rounded-md transition-all hover:scale-105 duration-300 object-cover' src={ImgCard} alt="Camisa  01" />
+              <p className='font-medium text-slate-900'>CAMISA INTERCLASE DRAGON 2025</p>
+              <strong className='font-bold text-xl text-slate-900' >R$ 25,00</strong>
+
+              <div className='flex gap-2'>
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-slate-500' />
+                <FaStar className='size-6 text-slate-500' />
+              </div>
+              <button className='px-2 py-1 my-2 font-medium rounded-md text-white bg-primary-500 cursor-pointer'>ADICIONAR AO CARRINHO</button>
+            </section>
+            {/* FIM CARD 2 */}
+
+            {/* CARD 2 */}
+            <section className='flex max-w-2xs gap-1 bg-white my-2 flex-col items-center justify-between rounded-md p-2 cursor-pointer'>
+
+              <img className='flex rounded-md transition-all hover:scale-105 duration-300 object-cover' src={ImgCard} alt="Camisa  01" />
+              <p className='font-medium text-slate-900'>CAMISA INTERCLASE DRAGON 2025</p>
+              <strong className='font-bold text-xl text-slate-900' >R$ 25,00</strong>
+
+              <div className='flex gap-2'>
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-slate-500' />
+                <FaStar className='size-6 text-slate-500' />
+              </div>
+              <button className='px-2 py-1 my-2 font-medium rounded-md text-white bg-primary-500 cursor-pointer'>ADICIONAR AO CARRINHO</button>
+            </section>
+            {/* FIM CARD 2 */}
+
+            {/* CARD 2 */}
+            <section className='flex max-w-2xs gap-1 bg-white my-2 flex-col items-center justify-between rounded-md p-2 cursor-pointer'>
+
+              <img className='flex rounded-md transition-all hover:scale-105 duration-300 object-cover' src={ImgCard} alt="Camisa  01" />
+              <p className='font-medium text-slate-900'>CAMISA INTERCLASE DRAGON 2025</p>
+              <strong className='font-bold text-xl text-slate-900' >R$ 25,00</strong>
+
+              <div className='flex gap-2'>
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-amber-400' />
+                <FaStar className='size-6 text-slate-500' />
+                <FaStar className='size-6 text-slate-500' />
+              </div>
+              <button className='px-2 py-1 my-2 font-medium rounded-md text-white bg-primary-500 cursor-pointer'>ADICIONAR AO CARRINHO</button>
+            </section>
+            {/* FIM CARD 2 */}
+
+          </div>
+        </div>
+        {/* FIM CARDS TERCEIRÃO */}
+
+
       </main>
-      {/* FIM LISTA DE CARDS */}
+      {/* FIM CARDS POR CATEGORIA */}
 
 
 
-    </Container>
+    </Container >
 
   )
 }
